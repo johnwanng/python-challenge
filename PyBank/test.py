@@ -33,12 +33,25 @@ while i <= n:
 for j in range(len(a[0])):
     if a[0][j] == "KEN":
         a[1][j] = int(a[1][j]) + 10
-        print(a[1][j])
+        #print(a[1][j])
         a[2][j] = int(a[2][j]) + 10
-        print(a[2][j])
+        #print(a[2][j])
 #        if a[0][j] == "KEN":
 #           a[1][j] = int(a[1][j]) + 10
 #           a[2][j] = int(a[2][j]) + 10
    
-print(a)
- 
+#print(a[0].sort)
+#print(a[0].sort())
+#print(a.sort())
+
+#sort(a)
+foo = ["c", "b", "a"]
+bar = [1, 2, 3]
+foo, bar = zip(*sorted(zip(foo, bar)))
+#print(foo)
+#print(bar)
+print(a[0])
+print(a[1])
+a[0],a[1] = zip(*sorted(zip(a[0], a[1])))
+print(a[0])
+print(a[1])

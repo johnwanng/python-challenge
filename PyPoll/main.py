@@ -37,12 +37,18 @@ with open(poll_csv, 'r') as csvfile:
             if candidateFound == 0:
                add_to_array(row[2])
 
-#print(a[0][1])
-#print(a[0][2])
-#print(a[0][3])
-#print(a[1][0])
-#print(a[1][1])
-#print(a[1][2])
+#Election Results
+#-------------------------
+#Total Votes: 3521001
+#-------------------------
+#Khan: 63.000% (2218231)
+#Correy: 20.000% (704200)
+#Li: 14.000% (492940)
+#O'Tooley: 3.000% (105630)
+#-------------------------
+#Winner: Khan
+#-------------------------
+
 
 for j in range(len(a[0])):
     #print(round((int(a[1][j])/ totalVotes) * 100,3)) 
@@ -52,6 +58,23 @@ for j in range(len(a[0])):
 print(totalVotes)
 print(a)
 
+for i in range(len(a[0])):
+    print(a[0][i])
+    print(a[1][i])
+    print(a[2][i])
 
+
+# Open and write to the output file under the analysis folder 
+#fileWriter = open("analysis/Poll_data_result.txt", "w+")
+# Write the first row (column headers)
+#fileWriter.writelines('Election Results\n')
+#fileWriter.writelines('-------------------------\n')
+#fileWriter.writelines('Total Votes:' + str(totalVotes) + '\n')
+#fileWriter.writelines('-------------------------\n')
+#fileWriter.writelines('Total: $' + str(statistics["totalProfitLoss"]) + '\n')
+#fileWriter.writelines('Average Change: $' + str(round(statistics["differenceAverage"],2)) + '\n')
+#fileWriter.writelines('Greatest Increase in Profits: ' + statistics["greatestIcreaseMonth"] + ' ($' + str(statistics["greatestIncreaseProfitLoss"]) + ')\n')
+#fileWriter.writelines('Greatest Decrease in Profits: ' + statistics["greatestDecreaseMonth"] + ' ($' + str(statistics["greatestDecreaseProfitLoss"]) + ')\n')
+#fileWriter.close()
 
 
