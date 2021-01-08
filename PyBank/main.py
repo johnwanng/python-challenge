@@ -1,7 +1,6 @@
 import os
 import csv
 
-
 # Statistics dictionary contains all the various analysis outputs and variables used to derive those calculations
 statistics = {
     "totalNumberOfMonths":0,
@@ -65,15 +64,27 @@ with open(bank_csv, 'r') as csvfile:
     # Work out the differenceAverage figure. Need to minus 1 from the total months because the first row there are only 85 differences as the first row is not included.
     statistics["differenceAverage"] = statistics["totalProfitLossDifference"]/(statistics["totalNumberOfMonths"] - 1)
 
+# Function that perform output to file and console
+def finalOutput():
+
+    # List contains output lines that need to be output to file and console 
+    outputLines = ['Finanical Analysis\n','-------------------------\n',
+                'Total Months: ' + str(statistics["totalNumberOfMonths"]) + '\n',
+                'Total: $' + str(statistics["totalProfitLoss"]) + '\n',
+                'Average Change: $' + str(round(statistics["differenceAverage"],2)) + '\n',
+                'Greatest Increase in Profits: ' + statistics["greatestIcreaseMonth"] + ' ($' + str(statistics["greatestIncreaseProfitLoss"]) + ')\n',
+                'Greatest Decrease in Profits: ' + statistics["greatestDecreaseMonth"] + ' ($' + str(statistics["greatestDecreaseProfitLoss"]) + ')\n']
+
     # Open and write to the output file under the analysis folder 
     fileWriter = open("analysis/budget_data_result.txt", "w+")
-    # Write the first row (column headers)
-    fileWriter.writelines('Finanical Analysis\n')
-    fileWriter.writelines('-------------------------\n')
-    fileWriter.writelines('Total Months: ' + str(statistics["totalNumberOfMonths"]) + '\n')
-    fileWriter.writelines('Total: $' + str(statistics["totalProfitLoss"]) + '\n')
-    fileWriter.writelines('Average Change: $' + str(round(statistics["differenceAverage"],2)) + '\n')
-    fileWriter.writelines('Greatest Increase in Profits: ' + statistics["greatestIcreaseMonth"] + ' ($' + str(statistics["greatestIncreaseProfitLoss"]) + ')\n')
-    fileWriter.writelines('Greatest Decrease in Profits: ' + statistics["greatestDecreaseMonth"] + ' ($' + str(statistics["greatestDecreaseProfitLoss"]) + ')\n')
-    fileWriter.close()
+
+    # Loop through outputLines list and start writing and displaying them to file and console, respectively
+    for lines in range(len(outputLines)):
+        fileWriter.writelines(outputLines[lines])
+        print(outputLines[lines])
     
+    # Close the file    
+    fileWriter.close()
+ 
+# Run the finalOutput function
+finalOutput()
